@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shinju Skin — Premium TCM Beauty & Wellness</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:#FAF6F0;--blush:#E8C4B0;--rose:#C9866A;
+    --mauve:#8B5A6E;--deep:#2C1A1D;--gold:#C9A96E;
+    --soft-white:#FDF9F5;--jade:#5A8A6E;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--cream);color:var(--deep);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;background:rgba(250,246,240,0.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,166,110,0.18);}
+  .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;letter-spacing:0.1em;color:var(--deep);}
+  .nav-logo span{color:var(--rose);font-style:italic;}
+  .nav-logo sub{font-size:0.5rem;letter-spacing:0.28em;text-transform:uppercase;opacity:0.5;display:block;margin-top:-4px;}
+  .nav-links{display:flex;gap:1.8rem;list-style:none;}
+  .nav-links a{font-size:0.67rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--deep);text-decoration:none;opacity:0.65;transition:opacity .2s,color .2s;}
+  .nav-links a:hover{opacity:1;color:var(--rose);}
+  .nav-book{background:var(--deep);color:var(--cream);padding:.6rem 1.5rem;font-size:.67rem;letter-spacing:.2em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Jost',sans-serif;transition:background .25s;}
+  .nav-book:hover{background:var(--mauve);}
+
+  /* HERO */
+  .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 3rem;padding-top:80px;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;top:-10%;right:-5%;width:55vw;height:110vh;background:radial-gradient(ellipse at 60% 40%,#E8C4B022 0%,#C9866A14 40%,transparent 70%);pointer-events:none;}
+  .hero-text{z-index:2;}
+  .hero-eyebrow{font-size:.62rem;letter-spacing:.38em;text-transform:uppercase;color:var(--jade);margin-bottom:1.4rem;animation:fadeUp .8s ease both;}
+  .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.8rem);font-weight:300;line-height:1.1;color:var(--deep);animation:fadeUp .8s .1s ease both;}
+  .hero-title em{color:var(--rose);font-style:italic;}
+  .hero-sub{margin-top:1.5rem;font-size:.88rem;line-height:1.9;color:var(--deep);opacity:.62;max-width:420px;animation:fadeUp .8s .2s ease both;}
+  .hero-actions{margin-top:2.2rem;display:flex;gap:1rem;animation:fadeUp .8s .3s ease both;}
+  .btn-primary{background:var(--deep);color:var(--cream);padding:.9rem 2rem;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Jost',sans-serif;transition:background .25s,transform .2s;}
+  .btn-primary:hover{background:var(--mauve);transform:translateY(-1px);}
+  .btn-ghost{background:transparent;color:var(--deep);padding:.9rem 2rem;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;border:1.5px solid var(--deep);cursor:pointer;font-family:'Jost',sans-serif;transition:all .25s;}
+  .btn-ghost:hover{background:var(--deep);color:var(--cream);}
+  .hero-visual{position:relative;display:flex;justify-content:center;align-items:center;animation:fadeIn 1s .4s ease both;}
+  .hero-card{width:340px;height:440px;background:linear-gradient(145deg,var(--blush),var(--rose));border-radius:2px;position:relative;overflow:hidden;box-shadow:30px 40px 80px rgba(44,26,29,.18);}
+  .hero-card-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;}
+  .hero-card-badge{position:absolute;bottom:1.8rem;left:1.8rem;right:1.8rem;background:rgba(250,246,240,.95);padding:1.1rem 1.3rem;}
+  .hero-card-badge p{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--jade);}
+  .hero-card-badge h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;color:var(--deep);margin-top:.3rem;}
+  .hero-float{position:absolute;top:-20px;right:-20px;background:var(--cream);padding:1rem 1.3rem;box-shadow:0 8px 30px rgba(44,26,29,.12);font-size:.65rem;letter-spacing:.12em;color:var(--deep);}
+  .hero-float strong{display:block;font-size:1.3rem;font-family:'Cormorant Garamond',serif;font-weight:400;color:var(--rose);}
+
+  /* MARQUEE */
+  .marquee-wrap{background:var(--deep);padding:.85rem 0;overflow:hidden;}
+  .marquee{display:flex;gap:3rem;white-space:nowrap;animation:marquee 34s linear infinite;}
+  .marquee span{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--blush);flex-shrink:0;}
+  .marquee span.dot{color:var(--gold);}
+
+  /* SECTIONS */
+  .section{padding:5.5rem 3rem;}
+  .section-label{font-size:.6rem;letter-spacing:.42em;text-transform:uppercase;color:var(--rose);margin-bottom:.9rem;}
+  .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3.8vw,2.9rem);font-weight:300;color:var(--deep);line-height:1.15;max-width:540px;}
+  .section-title em{font-style:italic;color:var(--rose);}
+
+  /* TREATMENT TABS */
+  .treatment-tabs{display:flex;gap:0;margin-top:2.5rem;border-bottom:1.5px solid rgba(44,26,29,.1);flex-wrap:wrap;}
+  .tab-btn{padding:.75rem 1.5rem;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;background:none;border:none;border-bottom:2px solid transparent;color:var(--deep);opacity:.4;cursor:pointer;font-family:'Jost',sans-serif;margin-bottom:-1.5px;transition:all .2s;}
+  .tab-btn.active{opacity:1;border-bottom-color:var(--rose);color:var(--rose);}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+
+  /* GRIDS */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(44,26,29,.08);border:1.5px solid rgba(44,26,29,.08);}
+  .services-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5px;background:rgba(44,26,29,.08);border:1.5px solid rgba(44,26,29,.08);}
+  .service-card{background:var(--soft-white);padding:2rem 1.8rem;transition:background .3s;cursor:pointer;}
+  .service-card:hover{background:var(--deep);}
+  .service-card:hover .service-name,.service-card:hover .service-desc,.service-card:hover .service-price,.service-card:hover .service-duration{color:var(--cream);opacity:1;}
+  .service-card:hover .service-tag{background:var(--rose);color:var(--cream);}
+  .service-icon{font-size:1.5rem;margin-bottom:1rem;display:block;}
+  .service-tag{display:inline-block;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;background:var(--blush);color:var(--deep);padding:.26rem .62rem;margin-bottom:.65rem;transition:all .3s;}
+  .service-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--deep);line-height:1.25;margin-bottom:.6rem;transition:color .3s;}
+  .service-desc{font-size:.78rem;line-height:1.75;color:var(--deep);opacity:.58;margin-bottom:1rem;transition:color .3s,opacity .3s;}
+  .service-price{font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:var(--rose);transition:color .3s;}
+  .service-card:hover .service-price{color:var(--gold);}
+  .service-duration{font-size:.64rem;opacity:.42;margin-top:.2rem;transition:color .3s;}
+
+  /* ── PACKAGES SECTION ── */
+  .packages-section{background:var(--deep);padding:5.5rem 3rem;position:relative;overflow:hidden;}
+  .packages-section::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A96E' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none;}
+  .packages-section .section-label{color:var(--gold);}
+  .packages-section .section-title{color:var(--cream);}
+  .packages-section .section-title em{color:var(--gold);}
+  .packages-section>.pkg-intro{color:var(--cream);opacity:.5;}
+  .packages-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;position:relative;z-index:1;}
+
+  .pkg{padding:0;position:relative;overflow:hidden;border-radius:4px;}
+
+  /* coloured top bar */
+  .pkg-topbar{height:5px;width:100%;}
+  .pkg-1 .pkg-topbar{background:linear-gradient(90deg,var(--rose),var(--gold));}
+  .pkg-2 .pkg-topbar{background:linear-gradient(90deg,var(--mauve),var(--blush));}
+
+  .pkg-body{padding:2.4rem 2.2rem 2rem;}
+  .pkg-1{background:#fff9f6;border:1px solid rgba(201,134,106,.25);}
+  .pkg-2{background:#faf7ff;border:1px solid rgba(139,90,110,.22);}
+
+  /* big glyph watermark */
+  .pkg-glyph{position:absolute;right:1.2rem;top:1.5rem;font-family:'Cormorant Garamond',serif;font-size:7rem;font-weight:300;line-height:1;pointer-events:none;z-index:0;}
+  .pkg-1 .pkg-glyph{color:rgba(201,134,106,.1);}
+  .pkg-2 .pkg-glyph{color:rgba(139,90,110,.09);}
+
+  .pkg-inner{position:relative;z-index:1;}
+
+  .pkg-badge{display:inline-flex;align-items:center;gap:.45rem;font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;padding:.32rem .9rem;margin-bottom:1.1rem;border-radius:2px;}
+  .pkg-badge::before{content:'✦';font-size:.55rem;}
+  .pkg-badge-rose{background:var(--rose);color:#fff5f0;}
+  .pkg-badge-mauve{background:var(--mauve);color:#fff0f5;}
+
+  .pkg-name{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;color:var(--deep);margin-bottom:.2rem;line-height:1.18;}
+  .pkg-name-zh{font-size:.65rem;letter-spacing:.24em;margin-bottom:1.1rem;display:block;}
+  .pkg-1 .pkg-name-zh{color:var(--rose);opacity:.8;}
+  .pkg-2 .pkg-name-zh{color:var(--mauve);opacity:.8;}
+
+  .pkg-divider{height:1px;margin:.2rem 0 1.1rem;}
+  .pkg-1 .pkg-divider{background:linear-gradient(90deg,rgba(201,134,106,.3),transparent);}
+  .pkg-2 .pkg-divider{background:linear-gradient(90deg,rgba(139,90,110,.25),transparent);}
+
+  .pkg-desc{font-size:.8rem;color:var(--deep);opacity:.62;line-height:1.82;margin-bottom:1rem;}
+  .pkg-suitability{font-size:.7rem;font-style:italic;line-height:1.65;margin-bottom:1.1rem;padding:.65rem .85rem;border-radius:2px;}
+  .pkg-1 .pkg-suitability{color:var(--jade);background:rgba(90,138,110,.07);border-left:2.5px solid var(--jade);}
+  .pkg-2 .pkg-suitability{color:var(--mauve);background:rgba(139,90,110,.07);border-left:2.5px solid var(--mauve);}
+
+  .pkg-includes{list-style:none;margin-bottom:1.2rem;}
+  .pkg-includes li{font-size:.79rem;color:var(--deep);opacity:.7;padding:.36rem 0;border-bottom:1px solid rgba(44,26,29,.07);display:flex;align-items:flex-start;gap:.62rem;line-height:1.55;}
+  .pkg-includes li:last-child{border-bottom:none;}
+  .pkg-includes li::before{content:'✦';font-size:.5rem;flex-shrink:0;margin-top:.3rem;}
+  .pkg-1 .pkg-includes li::before{color:var(--rose);}
+  .pkg-2 .pkg-includes li::before{color:var(--mauve);}
+
+  .herbal-highlight{padding:.85rem 1rem;margin:.9rem 0 1.1rem;border-radius:2px;}
+  .pkg-1 .herbal-highlight{background:rgba(201,134,106,.07);border:1px solid rgba(201,134,106,.2);}
+  .pkg-2 .herbal-highlight{background:rgba(139,90,110,.06);border:1px solid rgba(139,90,110,.18);}
+  .herbal-highlight-label{font-size:.54rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:.55rem;display:block;}
+  .pkg-1 .herbal-highlight-label{color:var(--rose);}
+  .pkg-2 .herbal-highlight-label{color:var(--mauve);}
+  .herbal-item{display:flex;align-items:flex-start;gap:.6rem;padding:.3rem 0;font-size:.77rem;color:var(--deep);opacity:.68;border-bottom:1px solid rgba(44,26,29,.06);line-height:1.5;}
+  .herbal-item:last-child{border-bottom:none;}
+  .herbal-item span.emoji{font-size:1rem;flex-shrink:0;}
+
+  /* price row */
+  .pkg-price-row{display:flex;align-items:flex-end;gap:1rem;margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid rgba(44,26,29,.08);}
+  .pkg-price{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;line-height:1;}
+  .pkg-1 .pkg-price{color:var(--rose);}
+  .pkg-2 .pkg-price{color:var(--mauve);}
+  .pkg-price-meta{display:flex;flex-direction:column;gap:.18rem;padding-bottom:.18rem;}
+  .pkg-saving{font-size:.65rem;color:var(--jade);font-weight:500;}
+  .pkg-valued{font-size:.62rem;color:var(--deep);opacity:.4;}
+
+  .pkg-cta{margin-top:1.2rem;padding:.88rem 0;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;transition:all .25s;border:none;width:100%;display:flex;align-items:center;justify-content:center;gap:.6rem;}
+  .pkg-cta::after{content:'→';transition:transform .2s;}
+  .pkg-cta:hover::after{transform:translateX(4px);}
+  .pkg-1 .pkg-cta{background:var(--rose);color:#fff5f0;}
+  .pkg-1 .pkg-cta:hover{background:var(--deep);}
+  .pkg-2 .pkg-cta{background:var(--mauve);color:#fff0f5;}
+  .pkg-2 .pkg-cta:hover{background:var(--deep);}
+
+  /* GALLERY */
+  .gallery{background:var(--soft-white);}
+  .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:3rem;}
+  .gallery-item{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:1;}
+  .gallery-item.wide{grid-column:span 2;aspect-ratio:2/1;}
+  .gallery-thumb{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s;}
+  .gallery-thumb-wrap{width:100%;height:100%;overflow:hidden;}
+  .gallery-overlay{position:absolute;inset:0;background:rgba(44,26,29,0);display:flex;align-items:flex-end;padding:1rem;transition:background .3s;}
+  .gallery-item:hover .gallery-overlay{background:rgba(44,26,29,.45);}
+  .gallery-caption{color:var(--cream);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:all .3s;}
+  .gallery-item:hover .gallery-caption{opacity:1;transform:translateY(0);}
+
+  /* INSTAGRAM */
+  .instagram{background:var(--deep);}
+  .instagram .section-label{color:var(--gold);}
+  .instagram .section-title{color:var(--cream);}
+  .ig-handle{font-size:.82rem;color:var(--blush);opacity:.7;margin-top:.5rem;}
+  .ig-handle a{color:var(--gold);text-decoration:none;}
+  .ig-handle a:hover{opacity:.8;}
+  .ig-widget-wrap{margin-top:2.5rem;width:100%;}
+  .ig-widget-wrap iframe{width:100%;border:0;overflow:hidden;display:block;}
+
+  /* BOOKING */
+  .booking{background:linear-gradient(135deg,#FAF0F0 0%,#F0EAF5 100%);}
+  .booking-wrap{max-width:900px;margin:0 auto;background:var(--soft-white);box-shadow:0 20px 80px rgba(44,26,29,.1);padding:3.5rem;}
+  .booking-header{text-align:center;margin-bottom:2rem;}
+  .booking-steps{display:flex;justify-content:center;margin-bottom:2.5rem;border-bottom:1.5px solid rgba(44,26,29,.08);flex-wrap:wrap;}
+  .step-btn{padding:.85rem 1.5rem;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;background:none;border:none;border-bottom:2px solid transparent;color:var(--deep);opacity:.38;cursor:default;font-family:'Jost',sans-serif;margin-bottom:-1.5px;transition:all .2s;}
+  .step-btn.active{opacity:1;border-bottom-color:var(--rose);color:var(--rose);}
+
+  /* client type selector */
+  .client-type-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:.5rem;}
+  .client-type-opt{border:1.5px solid rgba(44,26,29,.12);background:var(--cream);padding:1rem .9rem;cursor:pointer;transition:all .2s;text-align:center;}
+  .client-type-opt:hover{border-color:var(--rose);}
+  .client-type-opt.selected{border-color:var(--rose);background:#FAF0F0;}
+  .ctype-icon{font-size:1.1rem;margin-bottom:.4rem;color:var(--rose);opacity:.5;}
+  .client-type-opt.selected .ctype-icon{opacity:1;}
+  .ctype-name{font-size:.8rem;font-weight:400;color:var(--deep);margin-bottom:.18rem;}
+  .ctype-sub{font-size:.66rem;color:var(--rose);opacity:.7;}
+
+  /* notices */
+  .client-notice{display:flex;gap:.8rem;align-items:flex-start;padding:.9rem 1.1rem;margin-bottom:1.2rem;font-size:.8rem;line-height:1.7;color:var(--deep);}
+  .client-notice strong{display:block;font-size:.82rem;margin-bottom:.1rem;}
+  .notice-icon{font-size:.9rem;flex-shrink:0;margin-top:.15rem;}
+  #notice-new{background:#fff8f4;border:1.5px solid rgba(201,134,106,.25);}
+  #notice-new .notice-icon{color:var(--rose);}
+  .notice-returning{background:#f4fff8;border:1.5px solid rgba(90,138,110,.22);}
+  .notice-returning .notice-icon{color:var(--jade);}
+  .notice-credit{background:#f4f0ff;border:1.5px solid rgba(139,90,110,.2);}
+  .notice-credit .notice-icon{color:var(--mauve);}
+
+  /* remove old toggle styles */
+  .credit-toggle,.toggle-switch,.toggle-slider,.credit-info{display:none;}
+
+  .booking-form{display:none;}
+  .booking-form.active{display:block;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:1.1rem;}
+  .form-group{display:flex;flex-direction:column;gap:.38rem;}
+  .form-group label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);opacity:.56;}
+  .form-group input,.form-group select,.form-group textarea{border:1.5px solid rgba(44,26,29,.12);background:var(--cream);color:var(--deep);padding:.82rem .95rem;font-size:.84rem;font-family:'Jost',sans-serif;outline:none;transition:border-color .2s;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--rose);}
+  .form-group textarea{resize:vertical;min-height:90px;}
+
+  .category-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.65rem;margin-bottom:1rem;}
+  .service-options{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-top:.5rem;}
+  .service-opt{padding:.85rem 1rem;border:1.5px solid rgba(44,26,29,.1);cursor:pointer;transition:all .2s;background:var(--cream);}
+  .service-opt:hover,.service-opt.selected{border-color:var(--rose);background:#FAF0F0;}
+  .service-opt-name{font-size:.82rem;font-weight:400;color:var(--deep);}
+  .service-opt-meta{font-size:.68rem;color:var(--rose);margin-top:.2rem;display:flex;justify-content:space-between;}
+
+  .time-slots{display:grid;grid-template-columns:repeat(5,1fr);gap:.55rem;margin-top:.5rem;}
+  .time-slot{padding:.6rem .4rem;text-align:center;border:1.5px solid rgba(44,26,29,.12);font-size:.74rem;cursor:pointer;transition:all .2s;background:var(--cream);}
+  .time-slot:hover,.time-slot.selected{background:var(--deep);color:var(--cream);border-color:var(--deep);}
+  .time-slot.unavailable{opacity:.3;cursor:not-allowed;}
+
+  .booking-summary{background:var(--deep);color:var(--cream);padding:1.4rem;margin-bottom:1.4rem;}
+  .summary-row{display:flex;justify-content:space-between;padding:.48rem 0;border-bottom:1px solid rgba(250,246,240,.07);font-size:.8rem;}
+  .summary-row:last-child{border-bottom:none;}
+  .summary-row span:last-child{color:var(--gold);}
+  .summary-row.total span{font-family:'Cormorant Garamond',serif;font-size:1.05rem;}
+
+  .deposit-box{background:var(--cream);border:1.5px solid rgba(201,134,106,.25);padding:1.4rem;margin-bottom:1.4rem;}
+  .deposit-box h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;color:var(--deep);margin-bottom:.45rem;}
+  .deposit-box p{font-size:.8rem;line-height:1.7;opacity:.62;}
+  .deposit-amount{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--rose);margin:.45rem 0;}
+  .payment-icons{display:flex;gap:.5rem;margin-top:.7rem;flex-wrap:wrap;}
+  .pay-icon{background:var(--deep);color:var(--cream);padding:.28rem .65rem;font-size:.58rem;letter-spacing:.08em;}
+
+  .form-nav{display:flex;gap:1rem;justify-content:space-between;margin-top:1.4rem;}
+  .btn-next{background:var(--deep);color:var(--cream);padding:.9rem 2.2rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Jost',sans-serif;transition:background .25s;margin-left:auto;}
+  .btn-next:hover{background:var(--mauve);}
+  .btn-back{background:transparent;color:var(--deep);padding:.9rem 1.6rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;border:1.5px solid rgba(44,26,29,.2);cursor:pointer;font-family:'Jost',sans-serif;transition:all .2s;}
+  .btn-back:hover{border-color:var(--deep);}
+
+  .success-screen{text-align:center;padding:2.5rem 0;display:none;}
+  .success-icon{font-size:3rem;margin-bottom:1.2rem;display:block;}
+  .success-screen h3{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:400;color:var(--deep);margin-bottom:.6rem;}
+  .success-screen p{font-size:.86rem;opacity:.62;line-height:1.8;}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center;}
+  .about-img-wrap{position:relative;}
+  .about-img{width:100%;height:480px;position:relative;overflow:hidden;}
+  .about-img img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+  .about-img-fallback{display:none;width:100%;height:100%;background:linear-gradient(160deg,var(--blush) 30%,var(--mauve));align-items:center;justify-content:center;font-size:10rem;color:rgba(255,255,255,.1);}
+  .about-stat{position:absolute;bottom:-1.5rem;right:-1.5rem;background:var(--deep);color:var(--cream);padding:1.4rem 1.9rem;text-align:center;}
+  .about-stat strong{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;display:block;color:var(--gold);}
+  .about-stat span{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;opacity:.62;}
+  .about-text p{font-size:.86rem;line-height:1.9;color:var(--deep);opacity:.66;margin-bottom:1rem;}
+  .about-features{display:flex;gap:2rem;margin-top:2rem;}
+  .about-feat{text-align:center;}
+  .about-feat strong{font-family:'Cormorant Garamond',serif;font-size:1.8rem;display:block;color:var(--rose);font-weight:400;}
+  .about-feat span{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;opacity:.52;}
+
+  /* TESTIMONIALS */
+  .testimonials{background:var(--soft-white);}
+  .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+  .testimonial{padding:1.8rem;border-left:3px solid var(--rose);background:var(--cream);}
+  .testimonial-stars{color:var(--gold);font-size:.78rem;margin-bottom:.75rem;}
+  .testimonial-text{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;line-height:1.75;color:var(--deep);margin-bottom:.9rem;}
+  .testimonial-author{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;opacity:.42;}
+
+  /* FOOTER */
+  footer{background:var(--deep);color:var(--cream);padding:4rem 3rem 2rem;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(250,246,240,.08);margin-bottom:2rem;}
+  .footer-brand h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;margin-bottom:.8rem;}
+  .footer-brand h3 span{color:var(--rose);font-style:italic;}
+  .footer-brand p{font-size:.78rem;opacity:.46;line-height:1.8;max-width:250px;}
+  .footer-col h4{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem;}
+  .footer-col ul{list-style:none;}
+  .footer-col li{margin-bottom:.62rem;}
+  .footer-col a{font-size:.78rem;color:var(--cream);opacity:.45;text-decoration:none;transition:opacity .2s;}
+  .footer-col a:hover{opacity:1;}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;}
+  .footer-bottom p{font-size:.68rem;opacity:.26;}
+  .social-links{display:flex;gap:.9rem;}
+  .social-links a{width:32px;height:32px;border:1px solid rgba(250,246,240,.14);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--cream);text-decoration:none;transition:all .2s;}
+  .social-links a:hover{border-color:var(--rose);color:var(--rose);}
+
+  /* LIGHTBOX */
+  .lightbox{display:none;position:fixed;inset:0;z-index:200;background:rgba(44,26,29,.9);align-items:center;justify-content:center;}
+  .lightbox.open{display:flex;}
+  .lightbox-inner{max-width:560px;width:90%;position:relative;}
+  .lightbox-img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+  .lightbox-close{position:absolute;top:-2.5rem;right:0;background:none;border:none;color:var(--cream);font-size:1.4rem;cursor:pointer;opacity:.65;}
+  .lightbox-close:hover{opacity:1;}
+  .lightbox-caption{color:var(--cream);text-align:center;margin-top:1rem;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;opacity:.65;}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* WHATSAPP BUTTON */
+  .wa-btn{position:fixed;bottom:2rem;right:2rem;z-index:999;display:flex;align-items:center;gap:.6rem;background:#25D366;color:white;text-decoration:none;padding:.75rem 1.2rem .75rem .9rem;border-radius:50px;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:transform .2s,box-shadow .2s;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.08em;}
+  .wa-btn:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(37,211,102,.45);}
+  .wa-icon{width:22px;height:22px;flex-shrink:0;}
+  .wa-label{white-space:nowrap;}
+  @media(max-width:600px){.wa-label{display:none;}.wa-btn{padding:.85rem;border-radius:50%;}
+    .hero{grid-template-columns:1fr;text-align:center;padding:5.5rem 1.5rem 3rem;}
+    .hero-visual{display:none;}
+    .hero-actions{justify-content:center;}
+    .services-grid,.services-grid-2,.category-row,.packages-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-item.wide{grid-column:span 1;aspect-ratio:1;}
+    .ig-grid{grid-template-columns:repeat(3,1fr);}
+    .about-grid,.footer-grid{grid-template-columns:1fr;}
+    .testimonials-grid{grid-template-columns:1fr;}
+    .form-row,.service-options{grid-template-columns:1fr;}
+    .time-slots{grid-template-columns:repeat(3,1fr);}
+    nav{padding:1rem 1.5rem;}
+    .nav-links{display:none;}
+    .section,.packages-section{padding:4rem 1.5rem;}
+    .booking-wrap{padding:2rem 1.2rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Shinju<span> Skin</span><sub>珍珠 · Premium TCM Wellness</sub></div>
+  <ul class="nav-links">
+    <li><a href="#treatments">Treatments</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#instagram">Instagram</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#booking">Book</a></li>
+  </ul>
+  <button class="nav-book" onclick="goSec('booking')">Book Now</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">✦ Premium TCM Beauty & Wellness · Kuala Lumpur</p>
+    <h1 class="hero-title">Ancient wisdom,<br><em>luminous</em><br>results.</h1>
+    <p class="hero-sub">Rooted in Traditional Chinese Medicine, Shinju Skin blends centuries-old herbal mastery with modern aesthetics — for skin that glows from within.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="goSec('booking')">Book a Treatment</button>
+      <button class="btn-ghost" onclick="goSec('treatments')">Explore Treatments</button>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+    <!-- hero card: treatment bed (IMG_0015) -->
+      <img class="hero-card-photo" src="https://res.cloudinary.com/difjvhuz6/image/upload/f_auto,q_auto/IMG_0015_ixt1gh" alt="Shinju Skin Treatment Room"
+        onerror="this.style.display='none'">
+      <div class="hero-card-badge">
+        <p>Signature Experience</p>
+        <h3>Imperial Pearl Glow Facial</h3>
+      </div>
+    </div>
+    <div class="hero-float"><strong>珍</strong>Pearl Essence</div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>TCM Facial Rituals</span><span class="dot">✦</span>
+    <span>Jade Gua Sha Sculpting</span><span class="dot">✦</span>
+    <span>Herbal Uterine Care</span><span class="dot">✦</span>
+    <span>Bird's Nest Hydration</span><span class="dot">✦</span>
+    <span>Snow Hashima Renewal</span><span class="dot">✦</span>
+    <span>American Ginseng Vitality</span><span class="dot">✦</span>
+    <span>Skin Booster Injections</span><span class="dot">✦</span>
+    <span>Acupuncture Facelift</span><span class="dot">✦</span>
+    <span>Ba Zhen Womb Ritual</span><span class="dot">✦</span>
+    <span>Yù Huá Mature Ritual</span><span class="dot">✦</span>
+    <span>TCM Facial Rituals</span><span class="dot">✦</span>
+    <span>Jade Gua Sha Sculpting</span><span class="dot">✦</span>
+    <span>Herbal Uterine Care</span><span class="dot">✦</span>
+    <span>Bird's Nest Hydration</span><span class="dot">✦</span>
+    <span>Snow Hashima Renewal</span><span class="dot">✦</span>
+    <span>American Ginseng Vitality</span><span class="dot">✦</span>
+    <span>Skin Booster Injections</span><span class="dot">✦</span>
+    <span>Acupuncture Facelift</span><span class="dot">✦</span>
+    <span>Ba Zhen Womb Ritual</span><span class="dot">✦</span>
+    <span>Yù Huá Mature Ritual</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- TREATMENTS -->
+<section class="section" id="treatments">
+  <p class="section-label">Our Specialties</p>
+  <h2 class="section-title">Treatments rooted in <em>heritage</em></h2>
+
+  <div class="treatment-tabs">
+    <button class="tab-btn active" onclick="switchTab('tcm')">TCM Facial Rituals</button>
+    <button class="tab-btn" onclick="switchTab('uterine')">Herbal Uterine Care</button>
+    <button class="tab-btn" onclick="switchTab('boosters')">Skin Boosters</button>
+  </div>
+
+  <!-- TCM FACIALS -->
+  <div class="tab-panel active" id="tab-tcm">
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🪷</span>
+        <span class="service-tag">Signature</span>
+        <h3 class="service-name">Imperial Pearl Glow Facial</h3>
+        <p class="service-desc">Our crown treatment infuses freshwater pearl powder, ginseng extract, and red jujube to brighten, firm, and illuminate the complexion. Includes gua sha lymphatic drainage.</p>
+        <div class="service-price">RM 498</div>
+        <div class="service-duration">120 min · Face + Neck + Décolletage</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🍃</span>
+        <span class="service-tag">Anti-Ageing</span>
+        <h3 class="service-name">Ginseng Renewal Ritual</h3>
+        <p class="service-desc">Panax ginseng and astragalus root infusion paired with meridian acupressure to boost qi circulation, reduce fine lines, and restore youthful elasticity.</p>
+        <div class="service-price">RM 468</div>
+        <div class="service-duration">120 min</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">⚗️</span>
+        <span class="service-tag">Sculpting</span>
+        <h3 class="service-name">Jade Gua Sha Sculpt</h3>
+        <p class="service-desc">Traditional jade stone gua sha massage along facial meridians to release tension, reduce puffiness, define cheekbones, and promote healthy lymphatic flow.</p>
+        <div class="service-price">RM 288</div>
+        <div class="service-duration">30 min</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🌿</span>
+        <span class="service-tag">Acne Care</span>
+        <h3 class="service-name">Huang Lian Clarifying Facial</h3>
+        <p class="service-desc">Coptis root (huang lian) and chrysanthemum extract target heat-excess acne patterns. Combines steaming, gentle extractions, and a cooling herbal compress.</p>
+        <div class="service-price">RM 388</div>
+        <div class="service-duration">120 min</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">✨</span>
+        <span class="service-tag">Luxury</span>
+        <h3 class="service-name">Golden Acupuncture Facelift</h3>
+        <p class="service-desc">Fine cosmetic acupuncture needles stimulate collagen production and lift facial muscles naturally. No downtime, visible lifting from the very first session.</p>
+        <div class="service-price">RM 688</div>
+        <div class="service-duration">120 min · Course of 6 recommended</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UTERINE CARE -->
+  <div class="tab-panel" id="tab-uterine">
+    <div class="services-grid-2">
+      <div class="service-card">
+        <span class="service-icon">🌺</span>
+        <span class="service-tag">Womb Wellness</span>
+        <h3 class="service-name">Womb Warming Herbal Compress</h3>
+        <p class="service-desc">Ai ye (mugwort), ginger, and cinnamon bark compress applied to the lower abdomen and sacrum to warm the uterus, relieve menstrual cramps, and restore internal balance.</p>
+        <div class="service-price">RM 280</div>
+        <div class="service-duration">60 min</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🌙</span>
+        <span class="service-tag">Postnatal</span>
+        <h3 class="service-name">Zuo Yue Zi Postpartum Program</h3>
+        <p class="service-desc">A comprehensive monthly postnatal confinement program — 4 weekly sessions combining herbal steaming, abdominal binding, womb massage, and customised herbal tonic consultations.</p>
+        <div class="service-price">RM 2,200</div>
+        <div class="service-duration">4 sessions · Weekly 1-month program</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔴</span>
+        <span class="service-tag">Moxibustion</span>
+        <h3 class="service-name">Moxa Meridian Therapy</h3>
+        <p class="service-desc">Targeted moxibustion along the ren mai and chong mai channels to expel cold, invigorate uterine circulation, and address irregular or painful menstruation.</p>
+        <div class="service-price">RM 260</div>
+        <div class="service-duration">60 min</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKIN BOOSTERS -->
+  <div class="tab-panel" id="tab-boosters">
+    <div class="services-grid-2">
+      <div class="service-card">
+        <span class="service-icon">🧬</span>
+        <span class="service-tag">Regeneration</span>
+        <h3 class="service-name">Exosome Regenerative Booster</h3>
+        <p class="service-desc">Next-generation exosome therapy derived from stem cell signalling to accelerate skin repair, reduce inflammation, and dramatically improve skin tone and firmness.</p>
+        <div class="service-price">RM 2,500</div>
+        <div class="service-duration">60 min</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🩸</span>
+        <span class="service-tag">Anti-Ageing</span>
+        <h3 class="service-name">PRP Platelet-Rich Plasma Facial</h3>
+        <p class="service-desc">Your own growth-factor-rich plasma is micro-needled into the skin to stimulate natural collagen production, reduce scars, and achieve a deeply refreshed complexion.</p>
+        <div class="service-price">RM 900</div>
+        <div class="service-duration">75 min</div>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">❄️</span>
+        <span class="service-tag">Pore Refining</span>
+        <h3 class="service-name">PDRN Polynucleotide Booster</h3>
+        <p class="service-desc">Salmon-derived PDRN micro-injections to repair DNA-damaged skin cells, tighten enlarged pores, reduce acne scarring, and restore a smooth, refined texture.</p>
+        <div class="service-price">RM 1,300</div>
+        <div class="service-duration">45 min</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PACKAGES — SEPARATE DARK SECTION              -->
+<!-- ══════════════════════════════════════════════ -->
+<section class="packages-section" id="packages">
+  <p class="section-label">Curated Rituals</p>
+  <h2 class="section-title">Signature <em>packages</em></h2>
+  <p style="font-size:.86rem;color:var(--deep);opacity:.55;margin-top:.8rem;max-width:560px;line-height:1.8">Each package is a complete immersive ritual — combining therapeutic treatment, herbal care, and nourishing tonics curated exclusively by Valerie.</p>
+
+  <div class="packages-grid">
+
+    <!-- PKG 1: BA ZHEN -->
+    <div class="pkg pkg-1" data-glyph="八">
+      <div class="pkg-topbar"></div>
+      <div class="pkg-glyph">八</div>
+      <div class="pkg-body">
+        <div class="pkg-inner">
+          <span class="pkg-badge pkg-badge-rose">Menstrual Wellness</span>
+          <div class="pkg-name">Bā Zhēn Huá Yán Ritual</div>
+          <span class="pkg-name-zh">八珍華顏禮 · Eight Treasures Radiance & Womb Renewal</span>
+          <div class="pkg-divider"></div>
+          <p class="pkg-desc">Inspired by the classical Bā Zhēn Tāng formula — a revered eight-herb tonic simultaneously replenishing qi and blood — this ritual addresses the root cause of menstrual disharmony while restoring luminous radiance to the skin.</p>
+          <div class="pkg-suitability">✦ Recommended for: irregular cycles, dysmenorrhoea, qi & blood deficiency, post-menstrual restoration<br>✦ Best taken: days 5–10 of cycle (post-menstrual phase)</div>
+          <ul class="pkg-includes">
+            <li>Imperial Pearl Glow Facial (120 min) — brightening, firming & gua sha lymphatic drainage</li>
+            <li>Womb Warming Herbal Compress — mugwort, ginger & cinnamon targeting cold-womb patterns & menstrual cramping</li>
+            <li>Personalised TCM menstrual wellness consultation with Valerie</li>
+          </ul>
+          <div class="herbal-highlight">
+            <span class="herbal-highlight-label">In-House Herbal Tonic — Ba Zhen Soup</span>
+            <div class="herbal-item"><span class="emoji">🌿</span>Freshly prepared Ba Zhen Soup — the classical eight-treasure formula of dang gui, bai shao, chuan xiong, shu di, dang shen, bai zhu, fu ling & zhi gan cao; served warm to nourish blood, tonify qi, and regulate the menstrual cycle</div>
+          </div>
+          <div class="pkg-price-row">
+            <div class="pkg-price">RM 899</div>
+            <div class="pkg-price-meta">
+              <span class="pkg-saving">You save RM 159</span>
+              <span class="pkg-valued">Valued at RM 1,058</span>
+            </div>
+          </div>
+          <button class="pkg-cta" onclick="bookPkg('Bā Zhēn Huá Yán Ritual 八珍華顏禮',899)">Book this ritual</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PKG 2: YU HUA -->
+    <div class="pkg pkg-2" data-glyph="玉">
+      <div class="pkg-topbar"></div>
+      <div class="pkg-glyph">玉</div>
+      <div class="pkg-body">
+        <div class="pkg-inner">
+          <span class="pkg-badge pkg-badge-mauve">Mature Radiance</span>
+          <div class="pkg-name">Yù Huá Cháng Yán Lǐ</div>
+          <span class="pkg-name-zh">玉華長顏禮 · Jade Blossom Timeless Radiance Ritual</span>
+          <div class="pkg-divider"></div>
+          <p class="pkg-desc">Conceived for the discerning woman seeking graceful, enduring vitality. Drawing from the Taoist ideal of 駐顏 — preserving one's countenance — this opulent ritual layers premium TCM herbal facial therapy with deep meridian warming and an exclusive in-house longevity herbal dessert or tonic soup.</p>
+          <div class="pkg-suitability">✦ Ideal for: peri/post-menopausal care, mature skin concerns, yin deficiency, kidney qi support<br>✦ No acupuncture needles — purely herbal TCM facial therapy</div>
+          <ul class="pkg-includes">
+            <li>TCM Herbal Facial — choose: Imperial Pearl Glow, Ginseng Renewal, or Huang Lian Clarifying (120 min)</li>
+            <li>Womb Warming Herbal Compress <em>or</em> Moxa Meridian Therapy — deep meridian warmth, circulation & cellular renewal</li>
+            <li>Personalised anti-ageing TCM skin & wellness consultation with Valerie</li>
+          </ul>
+          <div class="herbal-highlight">
+            <span class="herbal-highlight-label">Exclusive to Mature Radiance — In-House Herbal Dessert / Soup · Choose One</span>
+            <div class="herbal-item"><span class="emoji">🪺</span>Bird's Nest with Tremella & Goji — premium collagen-boosting yin tonic for skin luminosity & elasticity</div>
+            <div class="herbal-item"><span class="emoji">❄️</span>Snow Hashima with Snow Lotus & Red Dates — rare kidney-yin essence, deeply anti-ageing from within</div>
+            <div class="herbal-item"><span class="emoji">🌿</span>American Ginseng & Longevity Tonic Soup — sustained qi vitality, cognitive clarity & skin radiance</div>
+          </div>
+          <div class="pkg-price-row">
+            <div class="pkg-price">RM 1,099</div>
+            <div class="pkg-price-meta">
+              <span class="pkg-saving">You save RM 209</span>
+              <span class="pkg-valued">Valued at RM 1,308</span>
+            </div>
+          </div>
+          <button class="pkg-cta" onclick="bookPkg('Yù Huá Cháng Yán Lǐ 玉華長顏禮',1099)">Book this ritual</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section gallery" id="gallery">
+  <p class="section-label">The Experience</p>
+  <h2 class="section-title">Inside <em>Shinju Skin</em></h2>
+  <div class="gallery-grid">
+
+    <!-- 1: wide — lounge/reception area (IMG_0287) -->
+    <div class="gallery-item wide" onclick="openLb(this,'Shinju Skin Studio Lounge')">
+      <div class="gallery-thumb-wrap">
+        <img class="gallery-thumb" src="https://res.cloudinary.com/difjvhuz6/image/upload/f_auto,q_auto/IMG_0287_p0yylu" alt="Studio Lounge"
+          onerror="this.style.background='linear-gradient(135deg,#e8d0b8,var(--blush))'">
+      </div>
+      <div class="gallery-overlay"><span class="gallery-caption">Studio Lounge</span></div>
+    </div>
+
+    <!-- 2: treatment room with bed (IMG_0015) -->
+    <div class="gallery-item" onclick="openLb(this,'Treatment Room')">
+      <div class="gallery-thumb-wrap">
+        <img class="gallery-thumb" src="https://res.cloudinary.com/difjvhuz6/image/upload/IMG_0015_ixt1gh.jpg" alt="Treatment Room"
+          onerror="this.style.background='linear-gradient(145deg,#d4c8b8,var(--mauve))'">
+      </div>
+      <div class="gallery-overlay"><span class="gallery-caption">Treatment Room</span></div>
+    </div>
+
+    <!-- 3: corridor (IMG_0291) -->
+    <div class="gallery-item" onclick="openLb(this,'Studio Corridor')">
+      <div class="gallery-thumb-wrap">
+        <img class="gallery-thumb" src="https://res.cloudinary.com/difjvhuz6/image/upload/f_auto,q_auto/IMG_0291_hrdbiz" alt="Studio Corridor"
+          onerror="this.style.background='linear-gradient(135deg,#c8d0c8,var(--jade))'">
+      </div>
+      <div class="gallery-overlay"><span class="gallery-caption">Studio Corridor</span></div>
+    </div>
+
+    <!-- 4: herbal ingredients (IMG_0294) -->
+    <div class="gallery-item" onclick="openLb(this,'TCM Herbal Ingredients')">
+      <div class="gallery-thumb-wrap">
+        <img class="gallery-thumb" src="https://res.cloudinary.com/difjvhuz6/image/upload/f_auto,q_auto/IMG_0294_uig0gr" alt="TCM Herbal Ingredients"
+          onerror="this.style.background='linear-gradient(135deg,#e8d8c0,var(--gold))'">
+      </div>
+      <div class="gallery-overlay"><span class="gallery-caption">TCM Herbal Ingredients</span></div>
+    </div>
+
+    <!-- 5: herbal mask red light (IMG_0072) -->
+    <div class="gallery-item" onclick="openLb(this,'Herbal Mask · Red Light Therapy')">
+      <div class="gallery-thumb-wrap">
+        <img class="gallery-thumb" src="https://res.cloudinary.com/difjvhuz6/image/upload/f_auto,q_auto/IMG_0072_ujxb06" alt="Herbal Mask Red Light"
+          onerror="this.style.background='linear-gradient(135deg,var(--rose),var(--mauve))'">
+      </div>
+      <div class="gallery-overlay"><span class="gallery-caption">Herbal Mask · Red Light Therapy</span></div>
+    </div>
+
+    <!-- 6: glow result (IMG_0289) -->
+    <div class="gallery-item" onclick="openLb(this,'Post-Treatment Glow')">
+      <div class="gallery-thumb-wrap">
+        <img class="gallery-thumb" src="https://res.cloudinary.com/difjvhuz6/image/upload/f_auto,q_auto/IMG_0289_ijh34f" alt="Post Treatment Glow"
+          onerror="this.style.background='linear-gradient(135deg,var(--blush),var(--cream))'">
+      </div>
+      <div class="gallery-overlay"><span class="gallery-caption">Post-Treatment Glow</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="section instagram" id="instagram">
+  <p class="section-label">Follow Our Journey</p>
+  <h2 class="section-title" style="color:var(--cream)">We're on <em>Instagram</em></h2>
+  <p class="ig-handle">Follow us at <a href="https://instagram.com/shinju_skin" target="_blank">@shinju_skin</a> for treatment updates, skin tips & behind-the-scenes</p>
+
+  <div class="ig-widget-wrap">
+    <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+    <iframe src="//lightwidget.com/widgets/af9abc3fed655157add1e02f7a2c1ee2.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+  </div>
+
+  <a href="https://instagram.com/shinju_skin" target="_blank" style="display:block;text-align:center;margin-top:2rem;background:transparent;color:var(--cream);border:1.5px solid rgba(250,246,240,.3);padding:.85rem 2.4rem;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;font-family:'Jost',sans-serif;text-decoration:none;max-width:280px;margin-left:auto;margin-right:auto;transition:all .25s;" onmouseover="this.style.background='var(--rose)';this.style.borderColor='var(--rose)'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(250,246,240,.3)'">Follow @shinju_skin on Instagram</a>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <div class="about-img">
+        <img src="https://drive.google.com/uc?export=view&id=1LnLGPlxxX0lCi5UWevN91LN_KUD75XKc" alt="Shinju Skin Treatment Room"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="about-img-fallback">珍</div>
+      </div>
+      <div class="about-stat"><strong>5+</strong><span>Years of practice</span></div>
+    </div>
+    <div class="about-text">
+      <p class="section-label">About Shinju Skin</p>
+      <h2 class="section-title">Where TCM <em>wisdom</em> meets modern beauty</h2>
+      <p style="margin-top:1.5rem">Shinju (珍珠) means pearl in Japanese — a symbol of radiance cultivated from within. Our studio was born from a deep respect for Traditional Chinese Medicine and a conviction that true beauty is inseparable from inner health.</p>
+      <p>Every treatment we offer is grounded in TCM principles — balancing qi, nourishing blood, harmonising yin and yang — while incorporating the finest modern aesthetic techniques for visible, lasting results.</p>
+      <div class="about-features">
+        <div class="about-feat"><strong>300+</strong><span>Clients served</span></div>
+        <div class="about-feat"><strong>15</strong><span>Signature treatments</span></div>
+        <div class="about-feat"><strong>100%</strong><span>Herbal formulas</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="section booking" id="booking">
+  <div class="booking-wrap">
+    <div class="booking-header">
+      <p class="section-label" style="text-align:center">Reserve Your Session</p>
+      <h2 class="section-title" style="text-align:center;margin:0 auto;font-size:1.9rem">Book an <em>appointment</em></h2>
+    </div>
+    <div class="booking-steps">
+      <button class="step-btn active" id="step-btn-1">① Treatment</button>
+      <button class="step-btn" id="step-btn-2">② Date & Time</button>
+      <button class="step-btn" id="step-btn-3">③ Your Details</button>
+      <button class="step-btn" id="step-btn-4">④ Confirm & Pay</button>
+    </div>
+
+    <!-- STEP 1 -->
+    <div class="booking-form active" id="step-1">
+      <!-- CLIENT TYPE SELECTOR -->
+      <div class="form-group" style="margin-bottom:1.4rem">
+        <label>I am a</label>
+        <div class="client-type-row">
+          <div class="client-type-opt selected" id="ctype-new" onclick="setClientType('new')">
+            <div class="ctype-icon">✦</div>
+            <div class="ctype-name">First-Time Client</div>
+            <div class="ctype-sub">RM 50 deposit to confirm</div>
+          </div>
+          <div class="client-type-opt" id="ctype-returning" onclick="setClientType('returning')">
+            <div class="ctype-icon">◈</div>
+            <div class="ctype-name">Returning Client</div>
+            <div class="ctype-sub">RM 50 deposit to confirm</div>
+          </div>
+          <div class="client-type-opt" id="ctype-credit" onclick="setClientType('credit')">
+            <div class="ctype-icon">❋</div>
+            <div class="ctype-name">Credit Package</div>
+            <div class="ctype-sub">RM 50 deducted from credit</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- first timer notice -->
+      <div class="client-notice" id="notice-new" style="display:block">
+        <span class="notice-icon">✦</span>
+        <div><strong>Welcome to Shinju Skin!</strong> A flat RM 50 deposit secures your first appointment with Valerie. This will be deducted from your treatment total on the day.</div>
+      </div>
+
+      <!-- returning notice -->
+      <div class="client-notice notice-returning" id="notice-returning" style="display:none">
+        <span class="notice-icon">◈</span>
+        <div><strong>Welcome back!</strong> A flat RM 50 deposit is required to confirm your booking. This is fully deducted from your treatment total on the day.</div>
+      </div>
+
+      <!-- credit fields -->
+      <div class="client-notice notice-credit" id="notice-credit" style="display:none">
+        <span class="notice-icon">❋</span>
+        <div><strong>Credit Package redemption.</strong> A RM 50 deposit will be deducted from your credit balance to confirm this appointment. Enter your details below to verify your package.</div>
+      </div>
+      <div class="credit-fields" id="credit-fields" style="display:none">
+        <div class="form-row">
+          <div class="form-group"><label>Registered Email</label><input type="email" id="credit-email" placeholder="your@email.com"></div>
+          <div class="form-group"><label>Client ID (optional)</label><input type="text" placeholder="e.g. SS-00123"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Select Treatment Category</label>
+        <div class="category-row">
+          <div class="service-opt" onclick="selectCat(this,'tcm')">
+            <div class="service-opt-name">🪷 TCM Facial Rituals</div>
+            <div class="service-opt-meta"><span>5 treatments</span><span>from RM 288</span></div>
+          </div>
+          <div class="service-opt" onclick="selectCat(this,'uterine')">
+            <div class="service-opt-name">🌺 Herbal Uterine Care</div>
+            <div class="service-opt-meta"><span>3 treatments</span><span>from RM 260</span></div>
+          </div>
+          <div class="service-opt" onclick="selectCat(this,'boosters')">
+            <div class="service-opt-name">💉 Skin Boosters</div>
+            <div class="service-opt-meta"><span>4 treatments</span><span>from RM 900</span></div>
+          </div>
+          <div class="service-opt" onclick="selectCat(this,'packages')">
+            <div class="service-opt-name">✦ Signature Packages</div>
+            <div class="service-opt-meta"><span>2 packages</span><span>from RM 899</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" id="treatment-select-wrap" style="display:none">
+        <label>Select Specific Treatment</label>
+        <div class="service-options" id="treatment-options"></div>
+      </div>
+      <div class="form-nav">
+        <button class="btn-next" onclick="nextStep(1)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="booking-form" id="step-2">
+      <div class="form-row">
+        <div class="form-group"><label>Preferred Date</label><input type="date" id="booking-date"></div>
+        <div class="form-group">
+          <label>Therapist</label>
+          <select><option>Valerie</option></select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Available Time Slots</label>
+        <div class="time-slots">
+          <div class="time-slot" onclick="selTime(this)">11:00 AM</div>
+          <div class="time-slot" onclick="selTime(this)">12:00 PM</div>
+          <div class="time-slot unavailable">1:00 PM</div>
+          <div class="time-slot" onclick="selTime(this)">2:00 PM</div>
+          <div class="time-slot" onclick="selTime(this)">3:00 PM</div>
+          <div class="time-slot unavailable">4:00 PM</div>
+          <div class="time-slot" onclick="selTime(this)">5:00 PM</div>
+          <div class="time-slot" onclick="selTime(this)">6:00 PM</div>
+          <div class="time-slot" onclick="selTime(this)">7:00 PM</div>
+          <div class="time-slot" onclick="selTime(this)">8:00 PM</div>
+        </div>
+      </div>
+      <div class="form-nav">
+        <button class="btn-back" onclick="prevStep(2)">← Back</button>
+        <button class="btn-next" onclick="nextStep(2)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="booking-form" id="step-3">
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" id="fname" placeholder="Your first name"></div>
+        <div class="form-group"><label>Last Name</label><input type="text" id="lname" placeholder="Your last name"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Email Address</label><input type="email" id="email" placeholder="you@example.com"></div>
+        <div class="form-group"><label>Phone (WhatsApp preferred)</label><input type="tel" id="phone" placeholder="+60 12-345 6789"></div>
+      </div>
+      <div class="form-group">
+        <label>Health Notes / Concerns</label>
+        <textarea placeholder="Any medical conditions, allergies, pregnancy status, menstrual phase, or concerns for Valerie…"></textarea>
+      </div>
+      <div class="form-nav">
+        <button class="btn-back" onclick="prevStep(3)">← Back</button>
+        <button class="btn-next" onclick="nextStep(3)">Review & Confirm →</button>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="booking-form" id="step-4">
+      <div class="booking-summary">
+        <div class="summary-row"><span>Treatment</span><span id="sum-service">—</span></div>
+        <div class="summary-row"><span>Therapist</span><span>Valerie</span></div>
+        <div class="summary-row"><span>Date & Time</span><span id="sum-datetime">—</span></div>
+        <div class="summary-row"><span>Client</span><span id="sum-name">—</span></div>
+        <div class="summary-row"><span>Total Price</span><span id="sum-total">—</span></div>
+        <div class="summary-row total"><span id="deposit-label">15% Deposit Due Now</span><span id="sum-deposit">—</span></div>
+      </div>
+
+      <div id="deposit-section">
+        <div class="deposit-box">
+          <h4>Deposit Policy</h4>
+          <p>A <strong>15% deposit</strong> is required to confirm your booking with Valerie. This is applied toward your treatment total. Cancellations within 24 hours will forfeit the deposit.</p>
+          <div class="deposit-amount" id="deposit-display">RM —</div>
+          <div class="payment-icons">
+            <span class="pay-icon">VISA</span>
+            <span class="pay-icon">MASTERCARD</span>
+            <span class="pay-icon">TNG eWallet</span>
+            <span class="pay-icon">DuitNow QR</span>
+            <span class="pay-icon">FPX</span>
+          </div>
+        </div>
+        <div class="form-group"><label>Cardholder Name</label><input type="text" placeholder="Name on card"></div>
+        <div class="form-group" style="margin-top:1rem"><label>Card Number</label><input type="text" placeholder="1234 5678 9012 3456" maxlength="19" oninput="fmtCard(this)"></div>
+        <div class="form-row" style="margin-top:1rem">
+          <div class="form-group"><label>Expiry Date</label><input type="text" placeholder="MM / YY" maxlength="7"></div>
+          <div class="form-group"><label>CVV</label><input type="text" placeholder="123" maxlength="4"></div>
+        </div>
+      </div>
+
+      <div id="credit-confirm-section" style="display:none">
+        <div class="deposit-box" style="border-color:rgba(90,138,110,.35)">
+          <h4 style="color:var(--jade)">✦ Credit Package Redemption</h4>
+          <p>Your session will be deducted from your active credit package. No payment is required today. A WhatsApp confirmation will be sent by Valerie upon booking.</p>
+        </div>
+      </div>
+
+      <div class="form-nav">
+        <button class="btn-back" onclick="prevStep(4)">← Back</button>
+        <button class="btn-next" id="confirm-btn" onclick="submitBooking()">Pay Deposit & Confirm ✓</button>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-screen" id="success-screen">
+      <span class="success-icon">🪷</span>
+      <h3>Almost there!</h3>
+      <p id="success-msg"></p>
+      <p style="margin-top:1rem;font-size:.78rem;opacity:.5">Redirecting to payment in a moment...<br>
+      If you are not redirected, <a href="https://buy.stripe.com/9B6fZg6Xt864aZadCWf7i01" target="_blank" style="color:var(--rose)">click here to pay</a>.</p>
+      <button class="btn-primary" style="margin-top:1.5rem" onclick="window.open('https://buy.stripe.com/9B6fZg6Xt864aZadCWf7i01','_blank')">Pay RM 50 Deposit Now →</button>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials">
+  <p class="section-label">Client Stories</p>
+  <h2 class="section-title">Transformations that <em>speak</em></h2>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"The Imperial Pearl Facial is unlike anything I've experienced. My skin looked like I had a filter on — for two weeks straight. Worth every ringgit."</p>
+      <p class="testimonial-author">— Amirah Z., Bangsar</p>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"I did the Ba Zhen package after my cycle and felt completely restored. The bird's nest tonic on top of the facial and compress — absolutely everything."</p>
+      <p class="testimonial-author">— Hui Fen L., Petaling Jaya</p>
+    </div>
+    <div class="testimonial">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"The Yù Huá package is a dream. The ginseng facial plus the snow hashima dessert — I felt like royalty. Valerie's knowledge of TCM is genuinely impressive."</p>
+      <p class="testimonial-author">— Preethi R., Mont Kiara</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Shinju<span> Skin</span></h3>
+      <p>Premium TCM beauty and wellness in Kuala Lumpur. Ancient wisdom, radiant results.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Treatments</h4>
+      <ul>
+        <li><a href="#">TCM Facial Rituals</a></li>
+        <li><a href="#">Herbal Uterine Care</a></li>
+        <li><a href="#">Skin Boosters</a></li>
+        <li><a href="#">Acupuncture Facelift</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Packages</h4>
+      <ul>
+        <li><a href="#">Bā Zhēn Huá Yán Ritual</a></li>
+        <li><a href="#">Yù Huá Cháng Yán Lǐ</a></li>
+        <li><a href="#">Zuo Yue Zi Postnatal</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:shinju.my@gmail.com">shinju.my@gmail.com</a></li>
+        <li><a href="tel:+60116863 8263">011-6863 8263</a></li>
+        <li><a href="#">Sunway Mentari, Selangor</a></li>
+        <li><a href="#">Tue–Sun 11am–8pm</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Shinju Skin · Sunway Mentari, Selangor</p>
+    <div class="social-links">
+      <a href="https://instagram.com/shinju_skin" target="_blank">IG</a>
+      <a href="#">TK</a><a href="#">FB</a><a href="#">XS</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP BUTTON -->
+<a href="https://wa.me/601168638263" target="_blank" class="wa-btn" aria-label="Chat on WhatsApp">
+  <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span class="wa-label">Chat with us</span>
+</a>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLb()">✕</button>
+    <img class="lightbox-img" id="lb-img" src="" alt="">
+    <p class="lightbox-caption" id="lb-cap"></p>
+  </div>
+</div>
+
+<script>
+  document.getElementById('booking-date').min = new Date().toISOString().split('T')[0];
+  function goSec(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+
+  function switchTab(id){
+    document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',['tcm','uterine','boosters'][i]===id));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    document.getElementById('tab-'+id).classList.add('active');
+  }
+
+  let bk={category:'',service:'',price:0,time:'',date:'',name:'',email:'',useCredit:false};
+
+  const txMap={
+    tcm:[
+      {name:'Imperial Pearl Glow Facial',price:498,dur:'120 min'},
+      {name:'Ginseng Renewal Ritual',price:468,dur:'120 min'},
+      {name:'Jade Gua Sha Sculpt',price:288,dur:'30 min'},
+      {name:'Huang Lian Clarifying Facial',price:388,dur:'120 min'},
+      {name:'Golden Acupuncture Facelift',price:688,dur:'120 min'},
+    ],
+    uterine:[
+      {name:'Womb Warming Herbal Compress',price:280,dur:'60 min'},
+      {name:'Zuo Yue Zi Postpartum Program',price:2200,dur:'4 sessions · 1-month program'},
+      {name:'Moxa Meridian Therapy',price:260,dur:'60 min'},
+    ],
+    boosters:[
+      {name:'Exosome Regenerative Booster',price:2500,dur:'60 min'},
+      {name:'PRP Platelet-Rich Plasma Facial',price:900,dur:'75 min'},
+      {name:'PDRN Polynucleotide Booster',price:1300,dur:'45 min'},
+    ],
+    packages:[
+      {name:'Bā Zhēn Huá Yán Ritual 八珍華顏禮',price:899,dur:'Facial + Compress + Herbal Tonic'},
+      {name:'Yù Huá Cháng Yán Lǐ 玉華長顏禮',price:1099,dur:'TCM Herbal Facial + Compress/Moxa + Herbal Dessert'},
+    ]
+  };
+
+  function toggleCredit(cb){
+    bk.useCredit=cb.checked;
+    document.getElementById('credit-info').classList.toggle('show',cb.checked);
+    document.getElementById('credit-fields').classList.toggle('show',cb.checked);
+  }
+
+  function selectCat(el,cat){
+    document.querySelectorAll('.category-row .service-opt').forEach(o=>o.classList.remove('selected'));
+    el.classList.add('selected');
+    bk.category=cat;bk.service='';bk.price=0;
+    const wrap=document.getElementById('treatment-select-wrap');
+    const opts=document.getElementById('treatment-options');
+    wrap.style.display='block';
+    opts.innerHTML=txMap[cat].map(t=>`
+      <div class="service-opt" onclick="selTx(this,'${t.name.replace(/'/g,"\\'").replace(/"/g,'&quot;')}',${t.price})">
+        <div class="service-opt-name">${t.name}</div>
+        <div class="service-opt-meta"><span>${t.dur}</span><span>RM ${t.price.toLocaleString()}</span></div>
+      </div>`).join('');
+  }
+
+  function selTx(el,name,price){
+    document.querySelectorAll('#treatment-options .service-opt').forEach(o=>o.classList.remove('selected'));
+    el.classList.add('selected');
+    bk.service=name;bk.price=price;
+    document.getElementById('deposit-display').textContent='RM '+Math.round(price*.15).toLocaleString();
+  }
+
+  function bookPkg(name,price){
+    goSec('booking');
+    setTimeout(()=>{
+      // pre-select packages category & treatment
+      const catEls=document.querySelectorAll('.category-row .service-opt');
+      catEls.forEach(o=>o.classList.remove('selected'));
+      catEls[3]&&catEls[3].classList.add('selected');
+      bk.category='packages';
+      const wrap=document.getElementById('treatment-select-wrap');
+      const opts=document.getElementById('treatment-options');
+      wrap.style.display='block';
+      opts.innerHTML=txMap.packages.map(t=>`
+        <div class="service-opt${t.name===name?' selected':''}" onclick="selTx(this,'${t.name.replace(/'/g,"\\'").replace(/"/g,'&quot;')}',${t.price})">
+          <div class="service-opt-name">${t.name}</div>
+          <div class="service-opt-meta"><span>${t.dur}</span><span>RM ${t.price.toLocaleString()}</span></div>
+        </div>`).join('');
+      bk.service=name;bk.price=price;
+      document.getElementById('deposit-display').textContent='RM '+Math.round(price*.15).toLocaleString();
+    },600);
+  }
+
+  function selTime(el){
+    document.querySelectorAll('.time-slot:not(.unavailable)').forEach(t=>t.classList.remove('selected'));
+    el.classList.add('selected');
+    bk.time=el.textContent.trim();
+  }
+  // alias
+  const selTime2=selTime;
+  document.querySelectorAll('.time-slot:not(.unavailable)').forEach(el=>el.addEventListener('click',()=>selTime(el)));
+
+  function goToStep(n){
+    document.querySelectorAll('.booking-form').forEach(f=>f.classList.remove('active'));
+    document.querySelectorAll('.step-btn').forEach(b=>b.classList.remove('active'));
+    const f=document.getElementById('step-'+n);
+    const b=document.getElementById('step-btn-'+n);
+    if(f)f.classList.add('active');
+    if(b)b.classList.add('active');
+  }
+
+  function nextStep(cur){
+    if(cur===1&&!bk.service){alert('Please select a treatment to continue.');return;}
+    if(cur===2){
+      bk.date=document.getElementById('booking-date').value;
+      if(!bk.date||!bk.time){alert('Please select a date and time slot.');return;}
+    }
+    if(cur===3){
+      const fn=document.getElementById('fname').value.trim();
+      const em=document.getElementById('email').value.trim();
+      if(!fn||!em){alert('Please fill in your name and email.');return;}
+      bk.name=fn+' '+document.getElementById('lname').value.trim();
+      bk.email=em;
+      updateSummary();
+    }
+    goToStep(cur+1);
+  }
+  function prevStep(cur){goToStep(cur-1);}
+
+  function updateSummary(){
+    const dep=Math.round(bk.price*.15);
+    document.getElementById('sum-service').textContent=bk.service;
+    document.getElementById('sum-datetime').textContent=(bk.date||'—')+' · '+(bk.time||'—');
+    document.getElementById('sum-name').textContent=bk.name;
+    document.getElementById('sum-total').textContent='RM '+bk.price.toLocaleString();
+    const depSec=document.getElementById('deposit-section');
+    const credSec=document.getElementById('credit-confirm-section');
+    const depLbl=document.getElementById('deposit-label');
+    const sumDep=document.getElementById('sum-deposit');
+    const confirmBtn=document.getElementById('confirm-btn');
+    if(bk.useCredit){
+      depSec.style.display='none';credSec.style.display='block';
+      depLbl.textContent='Payment';sumDep.textContent='Credit Package';
+      confirmBtn.textContent='Confirm with Credit Package ✓';
+    } else {
+      depSec.style.display='block';credSec.style.display='none';
+      depLbl.textContent='15% Deposit Due Now';
+      sumDep.textContent='RM '+dep.toLocaleString();
+      document.getElementById('deposit-display').textContent='RM '+dep.toLocaleString();
+      confirmBtn.textContent='Pay Deposit & Confirm ✓';
+    }
+  }
+
+  function fmtCard(inp){
+    let v=inp.value.replace(/\D/g,'');
+    inp.value=v.match(/.{1,4}/g)?.join(' ')||v;
+  }
+
+  function submitBooking(){
+    document.querySelectorAll('.booking-form').forEach(f=>f.classList.remove('active'));
+    document.querySelectorAll('.step-btn').forEach(b=>b.classList.remove('active'));
+    const msg=bk.useCredit
+      ?`Your session has been deducted from your credit package.<br>Valerie will WhatsApp you shortly to confirm. See you at Shinju Skin!`
+      :`Your booking is secured and your 15% deposit has been received.<br>Valerie will WhatsApp you shortly to confirm. See you at Shinju Skin!`;
+    document.getElementById('success-msg').innerHTML=msg;
+    document.getElementById('success-screen').style.display='block';
+  }
+
+  function resetBooking(){
+    bk={category:'',service:'',price:0,time:'',date:'',name:'',email:'',useCredit:false};
+    document.getElementById('success-screen').style.display='none';
+    document.getElementById('treatment-select-wrap').style.display='none';
+    document.getElementById('credit-toggle').checked=false;
+    document.getElementById('credit-info').classList.remove('show');
+    document.getElementById('credit-fields').classList.remove('show');
+    document.querySelectorAll('.service-opt').forEach(o=>o.classList.remove('selected'));
+    document.querySelectorAll('.time-slot').forEach(t=>t.classList.remove('selected'));
+    goToStep(1);
+  }
+
+  function openLb(el, cap){
+    const img = el.querySelector('img');
+    const lbImg = document.getElementById('lb-img');
+    lbImg.src = img ? img.src : '';
+    lbImg.alt = cap;
+    document.getElementById('lb-cap').textContent = cap;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLb(){document.getElementById('lightbox').classList.remove('open');}
+  document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLb();});
+</script>
+</body>
+</html>
